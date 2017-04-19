@@ -1,9 +1,14 @@
-# api documentation for  [karma-nyan-reporter (v0.2.5)](https://github.com/dgarlitt/karma-nyan-reporter#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-karma-nyan-reporter.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-karma-nyan-reporter) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-karma-nyan-reporter.svg)](https://travis-ci.org/npmdoc/node-npmdoc-karma-nyan-reporter)
+# npmdoc-karma-nyan-reporter
+
+#### api documentation for  [karma-nyan-reporter (v0.2.5)](https://github.com/dgarlitt/karma-nyan-reporter#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-karma-nyan-reporter.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-karma-nyan-reporter) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-karma-nyan-reporter.svg)](https://travis-ci.org/npmdoc/node-npmdoc-karma-nyan-reporter)
+
 #### Karma reporter with Nyan Cat style logging.
 
-[![NPM](https://nodei.co/npm/karma-nyan-reporter.png?downloads=true)](https://www.npmjs.com/package/karma-nyan-reporter)
+[![NPM](https://nodei.co/npm/karma-nyan-reporter.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/karma-nyan-reporter)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-karma-nyan-reporter/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-karma-nyan-reporter_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-karma-nyan-reporter/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-karma-nyan-reporter/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-karma-nyan-reporter/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-karma-nyan-reporter/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-karma-nyan-reporter/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-karma-nyan-reporter/build/screenCapture.npmPackageListing.svg)
 
@@ -17,8 +22,7 @@
 
 {
     "author": {
-        "name": "Daniel Arlitt",
-        "email": "dgarlitt@yahoo.com"
+        "name": "Daniel Arlitt"
     },
     "bugs": {
         "url": "https://github.com/dgarlitt/karma-nyan-reporter/issues"
@@ -54,8 +58,7 @@
     "main": "index.js",
     "maintainers": [
         {
-            "name": "dgarlitt",
-            "email": "dgarlitt@yahoo.com"
+            "name": "dgarlitt"
         }
     ],
     "name": "karma-nyan-reporter",
@@ -63,7 +66,6 @@
     "peerDependencies": {
         "karma": ">=0.9"
     },
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/dgarlitt/karma-nyan-reporter.git"
@@ -75,62 +77,6 @@
     },
     "version": "0.2.5"
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module karma-nyan-reporter](#apidoc.module.karma-nyan-reporter)
-1.  object <span class="apidocSignatureSpan">karma-nyan-reporter.</span>nyanCat
-
-#### [module karma-nyan-reporter.nyanCat](#apidoc.module.karma-nyan-reporter.nyanCat)
-1.  [function <span class="apidocSignatureSpan">karma-nyan-reporter.nyanCat.</span>NyanCat (baseReporterDecorator, formatError, config)](#apidoc.element.karma-nyan-reporter.nyanCat.NyanCat)
-
-
-
-# <a name="apidoc.module.karma-nyan-reporter"></a>[module karma-nyan-reporter](#apidoc.module.karma-nyan-reporter)
-
-
-
-# <a name="apidoc.module.karma-nyan-reporter.nyanCat"></a>[module karma-nyan-reporter.nyanCat](#apidoc.module.karma-nyan-reporter.nyanCat)
-
-#### <a name="apidoc.element.karma-nyan-reporter.nyanCat.NyanCat"></a>[function <span class="apidocSignatureSpan">karma-nyan-reporter.nyanCat.</span>NyanCat (baseReporterDecorator, formatError, config)](#apidoc.element.karma-nyan-reporter.nyanCat.NyanCat)
-- description and source-code
-```javascript
-function NyanCat(baseReporterDecorator, formatError, config) {
-  var self = this;
-  var defaultOptions = function() {
-    return {
-      suppressErrorReport: false,
-      suppressErrorHighlighting: false,
-      numberOfRainbowLines: 4,
-      renderOnRunCompleteOnly: false
-    };
-  };
-
-  self.options = defaultOptions();
-
-  if (config && config.nyanReporter) {
-    // merge defaults
-    Object.keys(self.options).forEach(function(optionName){
-      if (config.nyanReporter.hasOwnProperty(optionName)) {
-        self.options[optionName] = config.nyanReporter[optionName];
-      }
-    });
-  }
-
-  self.adapters = [fs.writeSync.bind(fs.writeSync, 1)];
-  dataTypes.setErrorFormatterMethod(formatError);
-
-  if (self.options.suppressErrorHighlighting) {
-    dataTypes.suppressErrorHighlighting();
-  }
-}
-```
-- example usage
-```shell
-n/a
 ```
 
 
