@@ -49,6 +49,8 @@
 <h1>api documentation for
     <a
 
+        href="https://github.com/dgarlitt/karma-nyan-reporter#readme"
+
     >karma-nyan-reporter (v0.2.5)</a>
 </h1>
 <h4>Karma reporter with Nyan Cat style logging.</h4>
@@ -363,7 +365,23 @@ function NyanCat(baseReporterDecorator, formatError, config) {
     dataTypes.suppressErrorHighlighting();
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   */
+
+  describe(&#x27;test constructor&#x27;, function() {
+
+    it(&#x27;should have expected default properties&#x27;, function() {
+var msg = &#x27;my message&#x27;;
+
+sut = new module.<span class="apidocCodeKeywordSpan">NyanCat</span>(null, formatterFake, configFake);
+
+expect(sut).to.contain.keys(defaultPropertyKeys);
+expect(sut.options).to.not.be.an.object;
+expect(sut.options.suppressErrorReport).to.be.false;
+expect(sut.options.suppressErrorHighlighting).to.be.false;
+expect(sut.options.numberOfRainbowLines).to.eq(4);
+expect(sut.options.renderOnRunCompleteOnly).to.be.false;
+...</pre></li>
     </ul>
 
 
@@ -704,7 +722,23 @@ function NyanCat(baseReporterDecorator, formatError, config) {
   this.depth = 0;
   this.errors = [];
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var sut, name, depth, errors;
+
+beforeEach(function(done) {
+  name = &#x27;browser&#x27;;
+  depth = 4;
+  errors = [&#x27;Error Info&#x27;, &#x27;node_modules/y&#x27;, &#x27;z&#x27;];
+
+  sut = new dt.<span class="apidocCodeKeywordSpan">Browser</span>(name);
+  sut.depth = depth;
+  sut.errors = errors;
+
+  done();
+});
+
+it(&#x27;should have the properties set correctly&#x27;, function() {
+...</pre></li>
     </ul>
 
 
@@ -722,7 +756,22 @@ function NyanCat(baseReporterDecorator, formatError, config) {
   this.suites = [];
   this.tests = [];
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var sut, name, suites, tests;
+
+beforeEach(function(done) {
+  name = &#x27;suite&#x27;;
+  suites = [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;];
+  tests = [1, 2, 3];
+
+  sut = new dt.<span class="apidocCodeKeywordSpan">Suite</span>(name);
+
+  sut.suites = suites;
+  sut.tests = tests;
+
+  done();
+});
+...</pre></li>
     </ul>
 
 
@@ -739,7 +788,22 @@ function NyanCat(baseReporterDecorator, formatError, config) {
   this.depth = 0;
   this.browsers = [];
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var sut, name, depth, browsers;
+
+beforeEach(function(done) {
+  name = &#x27;test&#x27;;
+  depth = 5;
+  browsers = [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;];
+
+  sut = new dt.<span class="apidocCodeKeywordSpan">Test</span>(name);
+
+  sut.depth = depth;
+  sut.browsers = browsers;
+
+  done();
+});
+...</pre></li>
     </ul>
 
 
